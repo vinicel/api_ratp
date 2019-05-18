@@ -1,6 +1,111 @@
 api_platform:
+
     mapping:
         paths: ['%kernel.project_dir%/src/Entity']
 
+    # The title of the API.
+    title: 'RATP'
+
+    # The description of the API.
+    description: 'Api ratp'
+
+    # The version of the API.
+    version: '0.1.0'
+
+    # Set this to false if you want Webby to disappear.
+    show_webby: true
+
+    # Specify a name converter to use.
+    name_converter: ~
+
+    # Specify a path name generator to use.
+    path_segment_name_generator: 'api_platform.path_segment_name_generator.underscore'
+
+    # Allow using plain IDs for JSON format
+    allow_plain_identifiers: false
+
+    doctrine:
+        # To enable or disable Doctrine ORM support.
+        enabled: true
+
+    doctrine_mongodb_odm:
+        # To enable or disable Doctrine MongoDB ODM support.
+        enabled: false
+
     eager_loading:
-        max_joins: 100
+        # To enable or disable eager loading.
+        enabled: true
+
+        # Fetch only partial data according to serialization groups.
+        # If enabled, Doctrine ORM entities will not work as expected if any of the other fields are used.
+        fetch_partial: false
+
+        # Max number of joined relations before EagerLoading throws a RuntimeException.
+        max_joins: 50
+
+        # Force join on every relation.
+        # If disabled, it will only join relations having the EAGER fetch mode.
+        force_eager: true
+
+    collection:
+        # The default order of results.
+        order: 'ASC'
+
+        # The name of the query parameter to order results.
+        order_parameter_name: 'order'
+
+        pagination:
+            # To enable or disable pagination for all resource collections by default.
+            enabled: true
+
+            # To allow the client to enable or disable the pagination.
+            client_enabled: false
+
+            # To allow the client to set the number of items per page.
+            client_items_per_page: false
+
+            # The default number of items per page.
+            items_per_page: 552
+
+            # The maximum number of items per page.
+            maximum_items_per_page: 1000
+
+            # The default name of the parameter handling the page number.
+            page_parameter_name: 'page'
+
+            # The name of the query parameter to enable or disable pagination.
+            enabled_parameter_name: 'pagination'
+
+            # The name of the query parameter to set the number of items per page.
+            items_per_page_parameter_name: 'itemsPerPage'
+
+            # To allow partial pagination for all resource collections.
+            # This improves performances by skipping the `COUNT` query.
+            partial: true
+
+            # To allow the client to enable or disable the partial pagination.
+            client_partial: true
+
+            # The name of the query parameter to enable or disable the partial pagination.
+            partial_parameter_name: 'partial' # Default value
+
+    # The list of enabled formats. The first one will be the default.
+    formats:
+        jsonld:
+            mime_types: ['application/ld+json']
+
+        json:
+            mime_types: ['application/json']
+
+        html:
+            mime_types: ['text/html']
+
+        # ...
+
+    # The list of enabled error formats. The first one will be the default.
+    error_formats:
+        jsonproblem:
+            mime_types: ['application/problem+json']
+
+        jsonld:
+            mime_types: ['application/ld+json']

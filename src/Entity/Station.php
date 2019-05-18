@@ -92,9 +92,9 @@ class Station
     private $codLigf;
 
     /**
-     * @var float|null
+     * @var string|null
      *
-     * @ORM\Column(name="coordinates", type="float", precision=10, scale=0, nullable=true)
+     * @ORM\Column(name="coordinates", type="string", length=38, nullable=true)
      * @Groups("station")
      */
     private $coordinates;
@@ -485,12 +485,12 @@ class Station
         return $this;
     }
 
-    public function getCoordinates(): ?float
+    public function getCoordinates(): ?string
     {
         return $this->coordinates;
     }
 
-    public function setCoordinates(?float $coordinates): self
+    public function setCoordinates(?string $coordinates): self
     {
         $this->coordinates = $coordinates;
 
