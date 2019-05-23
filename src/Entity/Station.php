@@ -348,6 +348,36 @@ class Station
     private $fer;
 
     /**
+     * @ORM\Column(type="float", nullable=true)
+     * @Groups("station")
+     */
+    private $latitude;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     * @Groups("station")
+     */
+    private $longitude;
+
+    /**
+     * @ORM\Column(type="simple_array", nullable=true)
+     * @Groups("station")
+     */
+    private $coord = [];
+
+    /**
+     * @ORM\Column(type="string", length=2500, nullable=true)
+     * @Groups("station")
+     */
+    private $image;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     * @Groups("station")
+     */
+    private $description;
+
+    /**
      * @ORM\OneToMany(targetEntity="App\Entity\QualiterAir", mappedBy="station")
      * @Groups("station")
      * @MaxDepth(1)
@@ -992,4 +1022,65 @@ class Station
 
         return $this;
     }
+
+    public function getLatitude(): ?float
+    {
+        return $this->latitude;
+    }
+
+    public function setLatitude(?float $latitude): self
+    {
+        $this->latitude = $latitude;
+
+        return $this;
+    }
+
+    public function getLongitude(): ?float
+    {
+        return $this->longitude;
+    }
+
+    public function setLongitude(?float $longitude): self
+    {
+        $this->longitude = $longitude;
+
+        return $this;
+    }
+
+    public function getCoord(): ?array
+    {
+        return $this->coord;
+    }
+
+    public function setCoord(?array $coord): self
+    {
+        $this->coord = $coord;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+    
 }
