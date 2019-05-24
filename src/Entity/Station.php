@@ -92,14 +92,6 @@ class Station
     private $codLigf;
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="coordinates", type="string", length=38, nullable=true)
-     * @Groups("station")
-     */
-    private $coordinates;
-
-    /**
      * @var int|null
      *
      * @ORM\Column(name="gares_id", type="integer", nullable=true)
@@ -363,7 +355,7 @@ class Station
      * @ORM\Column(type="simple_array", nullable=true)
      * @Groups("station")
      */
-    private $coord = [];
+    private $coordinates = [];
 
     /**
      * @ORM\Column(type="string", length=2500, nullable=true)
@@ -511,18 +503,6 @@ class Station
     public function setCodLigf(?int $codLigf): self
     {
         $this->codLigf = $codLigf;
-
-        return $this;
-    }
-
-    public function getCoordinates(): ?string
-    {
-        return $this->coordinates;
-    }
-
-    public function setCoordinates(?string $coordinates): self
-    {
-        $this->coordinates = $coordinates;
 
         return $this;
     }
@@ -1047,14 +1027,14 @@ class Station
         return $this;
     }
 
-    public function getCoord(): ?array
+    public function getCoordinates(): ?array
     {
-        return $this->coord;
+        return $this->coordinates;
     }
 
-    public function setCoord(?array $coord): self
+    public function setCoordinates(?array $coordinates): self
     {
-        $this->coord = $coord;
+        $this->coordinates = $coordinates;
 
         return $this;
     }
@@ -1082,5 +1062,4 @@ class Station
 
         return $this;
     }
-    
 }
