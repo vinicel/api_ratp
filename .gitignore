@@ -81,3 +81,8 @@ fabric.properties
 
 .DS_Store
 .idea
+
+###> symfony/phpunit-bridge ###
+.phpunit
+/phpunit.xml
+###< symfony/phpunit-bridge ###
