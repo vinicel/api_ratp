@@ -370,6 +370,14 @@ class Station
     private $description;
 
     /**
+     * @var int|null
+     *
+     * @ORM\Column(name="code_insee", type="integer", nullable=true)
+     * @Groups("station")
+     */
+    private $codeInsee;
+
+    /**
      * @ORM\OneToMany(targetEntity="App\Entity\QualiterAir", mappedBy="station")
      * @Groups("station")
      * @MaxDepth(1)
@@ -1059,6 +1067,18 @@ class Station
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getCodeInsee(): ?int
+    {
+        return $this->codeInsee;
+    }
+
+    public function setCodeInsee(?int $codeInsee): self
+    {
+        $this->codeInsee = $codeInsee;
 
         return $this;
     }
