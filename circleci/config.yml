@@ -1,12 +1,12 @@
 version: 2
 jobs:
   build_and_test:
-    working_directory: ~/mootube
+    working_directory: ~/api_ratp
     docker:
-      - image: php:7.1
+      - image: php:7.2
       - image: mysql:5.7
         environment:
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_ALLOW_EMPTY_PASSWORD: no
     steps:
       # Installation
       - run:
