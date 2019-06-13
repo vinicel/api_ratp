@@ -51,14 +51,6 @@ class AccessMetro
     /**
      * @var int|null
      *
-     * @ORM\Column(name="code_insee", type="integer", nullable=true)
-     * @Groups("station")
-     */
-    private $codeInsee;
-
-    /**
-     * @var int|null
-     *
      * @ORM\Column(name="x", type="integer", nullable=true)
      * @Groups("station")
      */
@@ -179,18 +171,6 @@ class AccessMetro
     public function setStif(?int $stif): self
     {
         $this->stif = $stif;
-
-        return $this;
-    }
-
-    public function getCodeInsee(): ?int
-    {
-        return $this->codeInsee;
-    }
-
-    public function setCodeInsee(?int $codeInsee): self
-    {
-        $this->codeInsee = $codeInsee;
 
         return $this;
     }
